@@ -170,15 +170,20 @@ body{--ink:#161616;--paper:#e9e8e1;--rule:#b5b4ae;--display:'Newsreader',serif}.
 .site-footer span{text-align:left}
 .site-footer a{margin-left:auto;text-align:right}
 
-/* Let the modal itself own the native right-hand scrollbar. */
-dialog{overflow:auto!important;overscroll-behavior:contain;scrollbar-gutter:stable}
-.reader-bar{position:sticky;top:0;z-index:20}
-.reader-body{height:auto!important;min-height:calc(100dvh - 66px);overflow:visible!important}
+/* The detail content owns one independent scrollbar; lock the background page. */
+html:has(#reader[open]),body.modal-open{overflow:hidden!important;scrollbar-gutter:auto!important}
+#reader{overflow:hidden!important;scrollbar-gutter:auto!important;width:100%;display:none;flex-direction:column}
+#reader[open]{display:flex}
+.reader-bar{position:relative!important;flex:0 0 auto;z-index:20}
+#reader .reader-body{height:auto!important;min-height:0!important;flex:1 1 0;overflow-y:scroll!important;overflow-x:auto!important;overscroll-behavior:contain;scrollbar-gutter:stable;scrollbar-width:auto;scrollbar-color:#777 #e8e8e8;scroll-behavior:auto}
+#reader .reader-body::-webkit-scrollbar{width:16px;height:16px}
+#reader .reader-body::-webkit-scrollbar-track{background:#e8e8e8}
+#reader .reader-body::-webkit-scrollbar-thumb{background:#777;border:3px solid #e8e8e8;border-radius:10px;min-height:36px}
+#reader .reader-body::-webkit-scrollbar-thumb:hover{background:#555}
 
 @media(max-width:800px){
   .contact-grid{grid-template-columns:1fr;row-gap:22px}
   .contact-grid>[data-copy]{justify-self:start;text-align:left}
-  .reader-body{min-height:calc(100dvh - 110px)}
 }
 </style></head><body id="top"><div class="deck-viewport"><main class="deck-stage"><section class="slide active visible"><header><div class="name">✳ Jianing’s design archive</div><nav><button id="menu" aria-label="展开菜单" aria-expanded="false">☰</button></nav><div class="popmenu"><button data-open="works">作品 / Work</button><button data-open="about">关于 / About</button><button data-open="contact">联系 / Contact</button></div></header><div class="symbol reveal"><svg viewBox="0 0 160 160" aria-hidden="true"><path d="M72 0h16v44h16V28h16v28h40v16h-44v16h28v16h-40v16H88v40H72v-44H56v28H40v-40H0V88h44V72H16V56h40V40h16z" fill="currentColor"/><rect x="64" y="64" width="32" height="32" fill="var(--slide-bg)"/></svg></div><p class="eyebrow">[ UNDERSTAND PEOPLE. DESIGN BETTER EXPERIENCES. ]</p><div class="headline reveal delay"><h1>The design of<br>everyday <button class="inline-photo" data-open="works" aria-label="浏览作品集"><img data-local-src="assets/cover-b.png" alt="董佳凝作品集"></button> experiences.</h1><p class="cn">理解用户，设计更好的体验。</p><p class="sub">董佳凝 / UX & UI Designer / Selected works 2026</p><button class="enter" data-open="works">[ EXPLORE THE ARCHIVE ↗ ]</button></div><div class="bottom-star"><svg viewBox="0 0 160 160" aria-hidden="true"><path d="M72 0h16v44h16V28h16v28h40v16h-44v16h28v16h-40v16H88v40H72v-44H56v28H40v-40H0V88h44V72H16V56h40V40h16z" fill="currentColor"/><rect x="64" y="64" width="32" height="32" fill="var(--slide-bg)"/></svg></div><p class="hint">RESEARCH · INTERACTION · VISUAL DESIGN</p></section></main></div>
 <div class="site-content"><div class="content-wrap"><section id="works"><div class="section-head scroll-reveal"><h2>Selected works.</h2><p>01—02 / USER EXPERIENCE & VISUAL DESIGN</p></div><div class="work-grid"><button class="work-card scroll-reveal" data-project="ux"><div class="work-image"><img data-local-src="assets/cover-ux.png" loading="lazy" alt="小红书 · 宠粉清单"></div><h3>小红书 · 宠粉清单<span class="arrow">↗</span></h3><p>从触达、信任到转化，重新梳理内容与购物体验。<br>个人 UX 项目 · 2026 / 34 页</p></button><button class="work-card scroll-reveal" data-project="bili"><div class="work-image"><img data-local-src="assets/cover-a.png" loading="lazy" alt="哔哩哔哩 · 年度回忆报告"></div><h3>哔哩哔哩 · 年度回忆报告<span class="arrow">↗</span></h3><p>将年度数据转化为有温度的云端回忆。<br>个人视觉项目 · 2026 / 18 页</p></button></div><p style="margin-top:35px"><button class="text-link" data-project="full">阅读完整作品集 · 保留全部 67 页内页 ↗</button></p></section></div>
